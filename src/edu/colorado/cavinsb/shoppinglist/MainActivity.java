@@ -5,6 +5,8 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.view.ContextMenu;
+import android.view.ContextMenu.ContextMenuInfo;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -44,6 +46,12 @@ public class MainActivity extends Activity {
 		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.main, menu);
 		return true;
+	}
+	
+	@Override
+	public void onCreateContextMenu(ContextMenu menu, View view, ContextMenuInfo menuInfo) {
+		super.onCreateContextMenu(menu, view, menuInfo);
+    	getMenuInflater().inflate(R.menu.main_context_menu, menu);
 	}
 	
 	@Override
@@ -92,6 +100,9 @@ public class MainActivity extends Activity {
 		
 		public void onItemClick(AdapterView<?> list, View list_item, int position, long id) {
 			MainActivity.this.selectedItem = position;
+			registerForContextMenu(listItems);
+			openContextMenu(listItems);
+			unregisterForContextMenu(listItems);
 			MainActivity.this.invalidateOptionsMenu();
 		}
 	}

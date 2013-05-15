@@ -14,5 +14,8 @@
     <string name="menu_str_new_item">New Item</string>
     <string name="menu_str_save">Save</string>
     <string name="menu_str_cancel">Cancel</string>
+    <string name="context_menu_str_edit_item">Edit Item</string>
+    <string name="context_menu_str_delete">Delete</string>
+    <string name="context_menu_str_cancel">Cancel</string>
 
 </resources>
