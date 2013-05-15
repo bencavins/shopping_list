@@ -30,13 +30,7 @@ public class MainActivity extends Activity {
 		
 		listItems = (ListView) findViewById(R.id.main_shopping_list);
 		listItems.setAdapter(getListItems());
-		listItems.setOnItemClickListener(new OnItemClickListener() {
-			
-			public void onItemClick(AdapterView<?> list, View list_item, int position, long id) {
-				MainActivity.this.selectedItem = position;
-				MainActivity.this.invalidateOptionsMenu();
-			}
-		});
+		listItems.setOnItemClickListener(new shoppingListOnItemClickListener());
 	}
 	
 	@Override
@@ -92,6 +86,14 @@ public class MainActivity extends Activity {
 		cursor.close();
 		
 		return adapter;
+	}
+	
+	private class shoppingListOnItemClickListener implements OnItemClickListener {
+		
+		public void onItemClick(AdapterView<?> list, View list_item, int position, long id) {
+			MainActivity.this.selectedItem = position;
+			MainActivity.this.invalidateOptionsMenu();
+		}
 	}
 
 }
