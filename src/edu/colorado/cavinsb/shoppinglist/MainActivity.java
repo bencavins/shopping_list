@@ -26,7 +26,10 @@ public class MainActivity extends Activity {
 		setContentView(R.layout.activity_main);
 		getActionBar().setDisplayHomeAsUpEnabled(true);
 		
+		sldb = new ShoppingListDB(this);
+		
 		listItems = (ListView) findViewById(R.id.main_shopping_list);
+		listItems.setAdapter(getListItems());
 		listItems.setOnItemClickListener(new OnItemClickListener() {
 			
 			public void onItemClick(AdapterView<?> list, View list_item, int position, long id) {
@@ -34,8 +37,12 @@ public class MainActivity extends Activity {
 				MainActivity.this.invalidateOptionsMenu();
 			}
 		});
-		
-		sldb = new ShoppingListDB(this);
+	}
+	
+	@Override
+	protected void onResume() {
+		super.onResume();
+		listItems.setAdapter(getListItems());
 	}
 
 	@Override
@@ -67,7 +74,7 @@ public class MainActivity extends Activity {
 		
 		System.out.println("Querying database");
 		Cursor cursor = db.query("shopping_list_items", 
-				new String[] {"name","quantity","price"}, null, null, null, null, "items");
+				new String[] {"name","quantity","price"}, null, null, null, null, "name");
 		while (cursor.moveToNext()) {
 			name = cursor.getString(0);
 			System.out.println("Retrieved item name: "+name);

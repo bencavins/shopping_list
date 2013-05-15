@@ -47,7 +47,7 @@
         android:textSize="24sp" />
 
     <EditText
-        android:id="@+id/EditText01"
+        android:id="@+id/sl_item_price"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
