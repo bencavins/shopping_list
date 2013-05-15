@@ -14,7 +14,7 @@ public class ShoppingListDB extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-    	db.execSQL("CREATE TABLE sl_items (" +
+    	db.execSQL("CREATE TABLE shopping_list_items (" +
     			"id INTEGER PRIMARY KEY AUTOINCREMENT, " +
     			"name TEXT NOT NULL, " +
     			"price REAL NOT NULL, " +
@@ -24,7 +24,7 @@ public class ShoppingListDB extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-    	db.execSQL("DROP TABLE IF EXISTS profiles");
+    	db.execSQL("DROP TABLE IF EXISTS shopping_list_items");
     	onCreate(db);
     }
     
