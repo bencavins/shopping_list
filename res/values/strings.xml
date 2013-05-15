@@ -12,5 +12,7 @@
     <string name="edit_list_item_cancel_button">Cancel</string>
     <string name="edit_list_item_submit_button">Done</string>
     <string name="menu_str_new_item">New Item</string>
+    <string name="menu_str_save">Save</string>
+    <string name="menu_str_cancel">Cancel</string>
 
 </resources>

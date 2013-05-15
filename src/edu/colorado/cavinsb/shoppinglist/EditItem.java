@@ -45,8 +45,32 @@ public class EditItem extends Activity {
 			//
 			NavUtils.navigateUpFromSameTask(this);
 			return true;
+		case R.id.menu_save:
+			// TODO Do save stuff (finish()?)
+			return true;
+		case R.id.menu_cancel:
+			// TODO Do cancel stuff (finish()?)
+			return true;
 		}
 		return super.onOptionsItemSelected(item);
+	}
+	
+	@Override
+	public void onResume() {
+		super.onResume();
+		// TODO onResume(): query db, set text of EditTexts
+	}
+	
+	@Override
+	public void onPause() {
+		super.onPause();
+		// TODO onPause(): if data is to be saved, grab text from EditTexts and save to db
+	}
+	
+	@Override
+	public void onStop() {
+		super.onStop();
+		// TODO close db
 	}
 
 }
