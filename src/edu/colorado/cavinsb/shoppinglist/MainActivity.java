@@ -1,5 +1,5 @@
 package edu.colorado.cavinsb.shoppinglist;
-
+ 
 import android.app.Activity;
 import android.content.Intent;
 import android.database.Cursor;
@@ -62,6 +62,22 @@ public class MainActivity extends Activity {
 			startActivity(intent);
 		}
 		return true;
+	}
+	
+	@Override
+	public boolean onContextItemSelected(MenuItem item) {
+		switch(item.getItemId()) {
+		case R.id.context_menu_edit:
+			// TODO edit item
+			return true;
+		case R.id.context_menu_delete:
+			// TODO delete item
+			return true;
+		case R.id.context_menu_cancel:
+			// TODO cancel
+			return true;
+		}
+		return super.onContextItemSelected(item);
 	}
 	
 	public ArrayAdapter<ShoppingListItem> getListItems() {
